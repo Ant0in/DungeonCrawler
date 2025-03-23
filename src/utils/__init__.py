@@ -1,7 +1,8 @@
 
 from .KeyboardListener import KeyboardListener, Event
-from .ArgParser import ArgParser
+from .ArgParser import ArgParser, ArgParserArguments
 
 
-__all__: list[str] = ['KeyboardListener', 'Event', 'ArgParser']
+__all__: list[str] = ['KeyboardListener', 'ArgParserArguments',
+                      'Event', 'ArgParser']
 

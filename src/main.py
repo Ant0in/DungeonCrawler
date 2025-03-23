@@ -1,16 +1,9 @@
 
 
-from models import Maze, Position2D, Player, Direction
+from models import Maze, Player, Direction
 from controllers import MazeCreator
 from views import MazeRenderer
-from utils import KeyboardListener, Event, ArgParser
-
-
-
-WIDTH: int = 20
-HEIGHT: int = 10
-PLAYER_POS: Position2D = Position2D(0, 0)
-PLAYER_VISION: int = 5
+from utils import KeyboardListener, Event, ArgParser, ArgParserArguments
 
 
 
@@ -47,7 +40,8 @@ def main(player: Player, maze: Maze) -> None:
 
 if __name__ == '__main__':
     
-    player: Player = Player(PLAYER_POS, PLAYER_VISION)
-    maze: Maze = MazeCreator.Maze(player.pos, WIDTH, HEIGHT)
+    args: dict[ArgParserArguments, any] = ArgParser.parse_args()
+    player: Player = Player(args[ArgParserArguments.PLAYER_POS], args[ArgParserArguments.PLAYER_VISION])
+    maze: Maze = MazeCreator.Maze(player.pos, args[ArgParserArguments.WIDTH], args[ArgParserArguments.HEIGHT])
     main(player, maze)
 

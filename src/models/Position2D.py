@@ -34,6 +34,10 @@ class Position2D:
     def __repr__(self) -> str:
         return f"({self.x}, {self.y})"
     
+    def from_str(s: str) -> 'Position2D':
+        x, y = map(int, s.split(","))
+        return Position2D(x, y)
+    
     def manhattan_distance(self, other: 'Position2D') -> int:
         return abs(self.x - other.x) + abs(self.y - other.y)
     
